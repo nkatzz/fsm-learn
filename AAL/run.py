@@ -153,9 +153,9 @@ if __name__ == "__main__":
     test = '/home/nkatz/dev/datasets_asp_wayeb_04062021/BioSmall/folds/fold_0/MTS_TEST_SAX_8_ASP.csv'
     """
 
-    train_1 = '/home/nkatz/dev/Time-Series-SAX/ts-datasets/data/UCRArchive_2018/Haptics/folds/fold_1/Haptics_TRAIN_SAX_10_500_ASP.csv'
+    train_1 = '/home/nkatz/fsm-learn-datasets/Haptics/folds/5/fold_0/Haptics_TRAIN_SAX_8_ASP.csv'
     train = [train_1]
-    test = '/home/nkatz/dev/Time-Series-SAX/ts-datasets/data/UCRArchive_2018/Haptics/folds/fold_1/Haptics_TEST_SAX_10_500_ASP.csv'
+    test = '/home/nkatz/fsm-learn-datasets/Haptics/folds/5/fold_0/Haptics_TEST_SAX_8_ASP.csv'
 
     # large bio
     """
