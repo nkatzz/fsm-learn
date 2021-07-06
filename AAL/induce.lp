@@ -25,7 +25,7 @@ statesEnum(1..n).
 
 %----------------------------------------
 #program base.
-state(1). state(2). %state(3). %state(4). %state(5).
+state(1). state(2). %state(3). state(4). state(5).
 
 %:- transition(S,_,S2), accepting(S), S2 != S.
 %:- transition(S1,X,S2), transition(S1,X,S3), S2 != S3.
