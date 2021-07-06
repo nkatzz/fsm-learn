@@ -1,0 +1,8 @@
+train_1 = '/home/nkatz/dev/datasets_asp_wayeb_04062021/BioSmall/folds/fold_0/pos_alive'
+train_2 = '/home/nkatz/dev/datasets_asp_wayeb_04062021/BioSmall/folds/fold_0/neg_alive'
+train_3 = '/home/nkatz/dev/datasets_asp_wayeb_04062021/BioSmall/folds/fold_0/pos_necrotic'
+train_4 = '/home/nkatz/dev/datasets_asp_wayeb_04062021/BioSmall/folds/fold_0/neg_necrotic'
+train_5 = '/home/nkatz/dev/datasets_asp_wayeb_04062021/BioSmall/folds/fold_0/pos_apoptotic'
+train_6 = '/home/nkatz/dev/datasets_asp_wayeb_04062021/BioSmall/folds/fold_0/neg_apoptotic'
+train = [train_1, train_2, train_3, train_4, train_5, train_6]
+test = '/home/nkatz/dev/datasets_asp_wayeb_04062021/BioSmall/folds/fold_0/MTS_TEST_SAX_8_ASP.csv'

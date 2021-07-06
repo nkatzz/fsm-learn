@@ -1,0 +1,24 @@
+BasicMotion
+Class 0:
+--------
+at_most(1,feature5(a),2). at_most(2,feature3(h),2). at_least(1,feature1(b),1). accepting(2).
+cost: [0L, 0L, 3L]
+TPs: 10, FPs: 0, FNs: 0, F1: 1.0
+
+Class 1:
+--------
+at_most(1,feature1(a),2). at_least(1,feature5(b),1). at_least(2,feature4(a),2). accepting(2).
+cost: [0L, 0L, 3L]
+TPs: 10, FPs: 0, FNs: 0, F1: 1.0
+
+Class 2:
+--------
+at_most(1,feature2(f),1). at_least(1,feature5(e),1). accepting(1). accepting(2).
+cost: [0L, 0L, 2L]
+TPs: 10, FPs: 0, FNs: 0, F1: 1.0
+
+Class 3:
+--------
+at_most(1,feature2(g),1). at_most(1,feature5(c),2). at_least(1,feature6(g),2). at_least(2,feature6(b),2). accepting(2).
+cost: [0L, 0L, 4L]
+TPs: 10, FPs: 0, FNs: 0, F1: 1.0

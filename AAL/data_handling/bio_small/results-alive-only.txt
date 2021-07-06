@@ -1,0 +1,34 @@
+******
+fold_0
+******
+at_most(1,alive(f),3). at_most(2,alive(e),2). at_most(2,alive(d),3). at_least(1,alive(c),1). at_least(1,alive(e),2). accepting(3).
+cost: [0L, 3L, 5L]
+TPs: 21, FPs: 2, FNs: 0, F1: 0.954545454545
+
+******
+fold_1
+******
+at_most(1,alive(d),2). at_most(1,alive(f),3). at_most(2,alive(g),2). at_most(2,alive(c),3). at_most(3,alive(d),3). at_least(1,alive(d),1). at_least(1,alive(d),2). accepting(3).
+cost: [0L, 2L, 6L]
+TPs: 20, FPs: 1, FNs: 0, F1: 0.975609756098
+
+******
+fold_2
+******
+at_most(1,alive(b),2). at_most(1,alive(f),3). at_most(2,alive(h),2). at_most(2,alive(c),3). at_most(3,alive(d),3). at_least(1,alive(c),1). accepting(3).
+cost: [0L, 3L, 6L]
+TPs: 20, FPs: 0, FNs: 0, F1: 1.0
+
+******
+fold_3
+******
+at_most(1,alive(e),2). at_most(1,alive(e),3). at_most(2,alive(e),2). at_most(2,alive(d),3). at_least(1,alive(d),1). at_least(1,alive(e),2). accepting(3).
+cost: [0L, 4L, 5L]
+TPs: 20, FPs: 1, FNs: 0, F1: 0.975609756098
+
+******
+fold_4
+******
+at_most(1,alive(b),2). at_most(1,alive(e),4). at_most(2,alive(e),2). at_most(2,alive(c),3). at_most(3,alive(d),3). at_least(1,alive(c),1). at_least(2,alive(e),2). accepting(3). accepting(4).
+cost: [0L, 3L, 6L]
+TPs: 20, FPs: 0, FNs: 0, F1: 1.0

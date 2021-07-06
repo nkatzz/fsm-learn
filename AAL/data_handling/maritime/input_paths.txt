@@ -1,0 +1,6 @@
+train_1 = '/home/nkatz/dev/TS-maritime_20200317/folds/fold_1/pos_lat'
+train_2 = '/home/nkatz/dev/TS-maritime_20200317/folds/fold_1/neg_lat'
+train_3 = '/home/nkatz/dev/TS-maritime_20200317/folds/fold_1/pos_lon'
+train_4 = '/home/nkatz/dev/TS-maritime_20200317/folds/fold_1/neg_lon'
+train = [train_1, train_2, train_3, train_4]
+test = '/home/nkatz/dev/TS-maritime_20200317/folds/fold_0/Maritime_TEST_SAX_8_ASP.csv'

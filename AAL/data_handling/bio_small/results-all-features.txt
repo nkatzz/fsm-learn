@@ -1,0 +1,32 @@
+***********************
+fold_0 (deterministic):
+***********************
+at_most(1,necrotic(c),1). at_most(1,alive(d),2). at_most(2,alive(d),2). at_least(1,necrotic(h),1). at_least(1,apoptotic(c),1). at_least(2,apoptotic(d),2). accepting(2).
+cost: [0L, 2L, 6L]
+TPs: 21, FPs: 1, FNs: 0, F1: 0.976744186047
+***********************
+fold_1 (deterministic):
+***********************
+at_most(1,necrotic(c),1). at_most(1,alive(d),2). at_most(2,alive(d),2). at_least(1,necrotic(h),1). at_least(1,apoptotic(c),1). at_least(2,apoptotic(d),2). accepting(2).
+cost: [0L, 2L, 6L]
+TPs: 20, FPs: 1, FNs: 0, F1: 0.975609756098
+***********************
+fold_2 (deterministic):
+***********************
+at_most(1,necrotic(b),1). at_most(1,alive(d),2). at_most(2,alive(d),2). at_least(1,necrotic(h),1). at_least(1,apoptotic(c),1). at_least(2,apoptotic(d),2). accepting(2).
+cost: [0L, 3L, 6L]
+TPs: 20, FPs: 0, FNs: 0, F1: 1.0
+***********************
+fold_3 (deterministic):
+***********************
+at_most(1,necrotic(c),1). at_most(1,alive(d),2). at_most(2,alive(d),2). at_least(1,necrotic(h),1). at_least(1,apoptotic(c),1). accepting(2).
+cost: [0L, 2L, 5L]
+TPs: 19, FPs: 1, FNs: 1, F1: 0.95
+***********************
+fold_4 (deterministic):
+***********************
+at_most(1,apoptotic(c),1). at_most(1,alive(d),2). at_most(2,alive(d),2). at_least(1,alive(e),1). at_least(1,necrotic(c),1). at_least(1,apoptotic(e),1). at_least(2,apoptotic(d),2). accepting(2).
+cost: [0L, 3L, 7L]
+TPs: 20, FPs: 0, FNs: 0, F1: 1.0
+
+Avg. F1-score (macro): 0.98

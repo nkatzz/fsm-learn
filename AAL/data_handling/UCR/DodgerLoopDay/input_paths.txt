@@ -1,0 +1,11 @@
+train_1 = '/home/nkatz/dev/datasets_asp_wayeb_04062021/selected_UCR/DodgerLoopDay/feature1_0'
+train_2 = '/home/nkatz/dev/datasets_asp_wayeb_04062021/selected_UCR/DodgerLoopDay/feature1_1'
+train_3 = '/home/nkatz/dev/datasets_asp_wayeb_04062021/selected_UCR/DodgerLoopDay/feature1_2'
+train_4 = '/home/nkatz/dev/datasets_asp_wayeb_04062021/selected_UCR/DodgerLoopDay/feature1_3'
+train_5 = '/home/nkatz/dev/datasets_asp_wayeb_04062021/selected_UCR/DodgerLoopDay/feature1_4'
+train_6 = '/home/nkatz/dev/datasets_asp_wayeb_04062021/selected_UCR/DodgerLoopDay/feature1_5'
+train_7 = '/home/nkatz/dev/datasets_asp_wayeb_04062021/selected_UCR/DodgerLoopDay/feature1_6'
+
+train = [train_1, train_2, train_3, train_4, train_5, train_6, train_6]
+
+test = '/home/nkatz/dev/datasets_asp_wayeb_04062021/selected_UCR/DodgerLoopDay/DodgerLoopDay_TEST_SAX_8_ASP.csv'

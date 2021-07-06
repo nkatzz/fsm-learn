@@ -1,0 +1,33 @@
+train_1 = '/home/nkatz/dev/datasets_asp_wayeb_04062021/selected_UCR/BasicMotions/feature1_0'
+train_2 = '/home/nkatz/dev/datasets_asp_wayeb_04062021/selected_UCR/BasicMotions/feature1_1'
+train_3 = '/home/nkatz/dev/datasets_asp_wayeb_04062021/selected_UCR/BasicMotions/feature1_2'
+train_4 = '/home/nkatz/dev/datasets_asp_wayeb_04062021/selected_UCR/BasicMotions/feature1_3'
+
+train_5 = '/home/nkatz/dev/datasets_asp_wayeb_04062021/selected_UCR/BasicMotions/feature2_0'
+train_6 = '/home/nkatz/dev/datasets_asp_wayeb_04062021/selected_UCR/BasicMotions/feature2_1'
+train_7 = '/home/nkatz/dev/datasets_asp_wayeb_04062021/selected_UCR/BasicMotions/feature2_2'
+train_8 = '/home/nkatz/dev/datasets_asp_wayeb_04062021/selected_UCR/BasicMotions/feature2_3'
+
+train_9 = '/home/nkatz/dev/datasets_asp_wayeb_04062021/selected_UCR/BasicMotions/feature3_0'
+train_10 = '/home/nkatz/dev/datasets_asp_wayeb_04062021/selected_UCR/BasicMotions/feature3_1'
+train_11 = '/home/nkatz/dev/datasets_asp_wayeb_04062021/selected_UCR/BasicMotions/feature3_2'
+train_12 = '/home/nkatz/dev/datasets_asp_wayeb_04062021/selected_UCR/BasicMotions/feature3_3'
+
+train_13 = '/home/nkatz/dev/datasets_asp_wayeb_04062021/selected_UCR/BasicMotions/feature4_0'
+train_14 = '/home/nkatz/dev/datasets_asp_wayeb_04062021/selected_UCR/BasicMotions/feature4_1'
+train_15 = '/home/nkatz/dev/datasets_asp_wayeb_04062021/selected_UCR/BasicMotions/feature4_2'
+train_16 = '/home/nkatz/dev/datasets_asp_wayeb_04062021/selected_UCR/BasicMotions/feature4_3'
+
+train_17 = '/home/nkatz/dev/datasets_asp_wayeb_04062021/selected_UCR/BasicMotions/feature5_0'
+train_18 = '/home/nkatz/dev/datasets_asp_wayeb_04062021/selected_UCR/BasicMotions/feature5_1'
+train_19 = '/home/nkatz/dev/datasets_asp_wayeb_04062021/selected_UCR/BasicMotions/feature5_2'
+train_20 = '/home/nkatz/dev/datasets_asp_wayeb_04062021/selected_UCR/BasicMotions/feature5_3'
+
+train_21 = '/home/nkatz/dev/datasets_asp_wayeb_04062021/selected_UCR/BasicMotions/feature6_0'
+train_22 = '/home/nkatz/dev/datasets_asp_wayeb_04062021/selected_UCR/BasicMotions/feature6_1'
+train_23 = '/home/nkatz/dev/datasets_asp_wayeb_04062021/selected_UCR/BasicMotions/feature6_2'
+train_24 = '/home/nkatz/dev/datasets_asp_wayeb_04062021/selected_UCR/BasicMotions/feature6_3'
+
+train = [train_1, train_2, train_3, train_4, train_5, train_6, train_7, train_8, train_9, train_10, train_11, train_12,
+train_13, train_14, train_15, train_16, train_17, train_18, train_19, train_20, train_21, train_22, train_23, train_24]
+test = '/home/nkatz/dev/datasets_asp_wayeb_04062021/selected_UCR/BasicMotions/BasicMotions_TEST_SAX_8_ASP.csv'
