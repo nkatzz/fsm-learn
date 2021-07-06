@@ -9,28 +9,17 @@ def get_symbol(symbol_index):
 
 #end.
 
-alphabetNum(1..20).
-symbol(@get_symbol(Y)) :- alphabetNum(Y).
+alphabetNum(1..8).
+_symbol(@get_symbol(Y)) :- alphabetNum(Y).
+
+symbol(var1(X)) :- _symbol(X).
 
 lesseq(a,b). lesseq(b,c). lesseq(c,d). lesseq(d,e). lesseq(e,f). lesseq(f,g). lesseq(g,h).
 
-lesseq(X,X) :- symbol(X).
+lesseq(X,X) :- _symbol(X).
 lesseq(X,Y) :- lesseq(X,Z), lesseq(Z,Y).
 
-% symbol(any).
-% transition(S1,X,S2) :- move(S1,X,S2).
-% transition(S1,X,S2) :- move(S1,any,S2), symbol(X).
+lesseq1(var1(X),var1(Y)) :- lesseq(X,Y).
 
-transition(S1,X,S2) :- at_most(S1,Y,S2), lesseq(X,Y).
-transition(S1,X,S2) :- at_least(S1,Y,S2), lesseq(Y,X).
-
-:- at_most(S1,X,S2), at_most(S1,Y,S2), lesseq(Y,X), Y != X.
-:- at_least(S1,X,S2), at_least(S1,Y,S2), lesseq(X,Y), Y != X.
-
-% transition(S1,X,S2) :- neg(S1,Y,S2), symbol(Y), symbol(X), X != Y.
-
-%symbol(bigIncrease).
-%symbol(smallIncrease).
-%symbol(noChange).
-
-%transition(S1,bigIncrease,S2) :- inState(SeqId,S1,T), seq(SeqId,X,T), inState(SeqId,S2,T+1), seq(SeqId,X,T),
+transition(S1,X,S2) :- at_most(S1,Y,S2), lesseq1(X,Y).
+transition(S1,X,S2) :- at_least(S1,Y,S2), lesseq1(Y,X).
