@@ -25,7 +25,7 @@ class App:
 
     def on_model(self, model):
         self.current_model = ' '.join(map(lambda x: x + '.', format(model).split(' ')))
-        print("\nModel {0}\n{1}\ncost: {2}".format(self.model_couner, self.current_model, model.cost))
+        print("\nModel {0}\n{1}\nCost (training set): {2}".format(self.model_couner, self.current_model, model.cost))
         self.model_couner += 1
         if self.current_model != '.':
             self.test_model()
@@ -69,7 +69,7 @@ class App:
         # print(appended)
         earliness = float(sum(appended)) / len(appended) if len(appended) > 0 else 'None'
         harmonic_mean = 2 * f1 * earliness / (f1 + earliness) if earliness != 'None' else 'None'
-        print('TPs: {0}, FPs: {1}, FNs: {2}, F1: {3}\nTP earlines: {4}, FP earliness: {5}\nEarliness: {6}, '
+        print('Performance (testing set):\nTPs: {0}, FPs: {1}, FNs: {2}, F1: {3}\nTP earlines: {4}, FP earliness: {5}\nEarliness: {6}, '
               'F1/earliness harmonic mean: {7}'.format(tps, fps, fns, f1, tp_earliness, fp_earliness, earliness,
                                                        harmonic_mean))
         """
@@ -147,15 +147,17 @@ if __name__ == "__main__":
     # train = '/home/nkatz/dev/Time-Series-SAX/ts-datasets/data/BioArchive/folds/fold_5/ALIVE_TRAIN_SAX_20_None_ASP.csv'
     # test = '/home/nkatz/dev/Time-Series-SAX/ts-datasets/data/BioArchive/folds/fold_5/ALIVE_TEST_SAX_20_None_ASP.csv'
 
-    """
-    train_1 = '/home/nkatz/dev/datasets_asp_wayeb_04062021/BioSmall/folds/fold_0/MTS_TRAIN_SAX_8_ASP.csv'
-    train = [train_1]
-    test = '/home/nkatz/dev/datasets_asp_wayeb_04062021/BioSmall/folds/fold_0/MTS_TEST_SAX_8_ASP.csv'
-    """
 
+    train_1 = '/home/nkatz/dev/datasets_asp_wayeb_04062021/BioSmall/folds/fold_1/MTS_TRAIN_SAX_8_ASP.csv'
+    train = [train_1]
+    test = '/home/nkatz/dev/datasets_asp_wayeb_04062021/BioSmall/folds/fold_1/MTS_TEST_SAX_8_ASP.csv'
+
+
+    """
     train_1 = '/home/nkatz/fsm-learn-datasets/Haptics/folds/5/fold_0/Haptics_TRAIN_SAX_8_ASP.csv'
     train = [train_1]
     test = '/home/nkatz/fsm-learn-datasets/Haptics/folds/5/fold_0/Haptics_TEST_SAX_8_ASP.csv'
+    """
 
     # large bio
     """
@@ -169,7 +171,7 @@ if __name__ == "__main__":
     # train = '/home/nkatz/dev/Time-Series-SAX/bio_compressed_folds/fold_1/ALIVE_TRAIN_SAX_8_None_ASP.csv'
     # test = '/home/nkatz/dev/Time-Series-SAX/bio_compressed_folds/fold_1/ALIVE_TEST_SAX_8_None_ASP.csv'
 
-    target_class = 5
+    target_class = 1
     exact = False
     states = 3
     incremental_mode = False  # True
