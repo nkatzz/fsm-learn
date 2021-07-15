@@ -9,4 +9,3 @@ tp(SeqId,T,SeqLength) :- truePositive(SeqId,T),  seqEnd(SeqId,SeqLength).
 #show fns/1.
 #show fp/3.
 #show tp/3.
-

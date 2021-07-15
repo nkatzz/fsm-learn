@@ -20,8 +20,3 @@ seqEnd(SeqId,T) :- seq(SeqId,T), not seq(SeqId,T1), T1 = T+1.
 
 #program seq_end_inc(k).
 seqEnd(SeqId,k) :- sequence(SeqId).
-
-
-
-
-

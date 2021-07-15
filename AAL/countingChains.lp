@@ -10,5 +10,3 @@ state(20).
 
 transition(S1,X,S2) :- transition_1(S1,X,S2).
 #minimize{1@1,S1,S2,X: transition_1(S1,X,S2)}.
-
-
