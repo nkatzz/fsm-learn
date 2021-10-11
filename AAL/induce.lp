@@ -20,6 +20,7 @@ statesEnum(1..n).
 %:~ falsePositive(SeqId,T). [T@2,SeqId]
 %:~ truePositive(SeqId,T). [-T@2,SeqId]
 
+% #maximize{1@4, Seq: positive(Seq), accepted(Seq)}.
 #minimize{1@3,Seq: positive(Seq), not accepted(Seq)}.
 #minimize{1@2,Seq: negative(Seq), accepted(Seq)}.
 
