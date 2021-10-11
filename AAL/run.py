@@ -251,9 +251,9 @@ def call_app_all_parameters(train, test, all_states,  timeLimits, target_class, 
             file1.write(app['best_model']+ "\n")
             file1.write(" Test vector: "+ str(app['test_vector'])+" , train vector:  " + str(app['train_vector']) + " , time elapsed: " + str(app['time'])+"\n")
     
-    if incremental_search:
+    if (not analytics) and incremental_search:
         return best_app,best_all_batches_app, best_states
-    else:
+    elif (not analytics):
         return best_app, best_states
     
     
@@ -595,15 +595,15 @@ if __name__ == "__main__":
     test='test.csv'
     """
     
-    # ------------ 1. Runs: all parameters ------------
     """
-    target_class, exact, incremental_mode, t_slice, incremental_search, chunk_size, test_threshold, analytics =  1, False, False, 0, False, 0, 0, True
+    # ------------ 1. Runs: all parameters ------------
+    target_class, exact, incremental_mode, t_slice, incremental_search, chunk_size, test_threshold, analytics =  1, False, False, 0, False, 100, 0, True
     all_states, timeLimits = [2, 3, 4, 5], [60*5,60*10,60*15, 60*15]
     call_app_all_parameters(train_1, test, all_states, timeLimits, target_class, exact, incremental_mode, t_slice,  incremental_search, chunk_size , test_threshold, analytics)
-
+    
     # ------------ 2. Runs: Incremental learning ------------
-    chunk_size = 120
-    test_threshold = 4
+    chunk_size = 80
+    test_threshold = 1
     file1 = open("incremental_learning_("+ str(chunk_size)+", "+ str(test_threshold)+").txt","w")
     file1.write("\n------------ Incremental learning: ("+ str(chunk_size)+", "+ str(test_threshold)+") ------------- \n")
     data = []
@@ -613,7 +613,6 @@ if __name__ == "__main__":
         data.append(row)
     whole_len=len(data)
     #chunks_sizes, test_thresholds = [50, 50, 80, 80, 80, 100, 100, 100, 120, 120], [1,2, 2, 3, 4, 2 , 3, 4 , 3, 4] 
-    #chunks_sizes = [50]
     
     time_list, train_vectors, train_scores, train_f1, test_vectors,  test_scores, test_f1 = [], [], [], [], [], [], []
     target_class, exact,incremental_mode, states, timeLimit, t_slice = 1, False, False, 2 ,1000, 0 
@@ -691,15 +690,14 @@ if __name__ == "__main__":
     for cnt_time in time_list:
         file1.write(str(cnt_time) + ", ")
     file1.write("] \n")
-    
+
     # ------------ 3. Runs: incremental_mode == True with whole dataset -----------------
 
 
-    target_class, exact,incremental_mode, states, timeLimit  = 1, False, True, 2 ,1000 
+    target_class, exact,incremental_mode, states, timeLimit  = 1, False, True, 2 , 1000 
     file1 = open("time_slices.txt","w")
     file1.write("\n------------ Time slices vs whole dataset ------------- \n")
-    #time_slices=[11, 21, 31, 36, 41, 49]
-    time_slices=[11, 21]
+    time_slices=[11, 21, 31, 36, 41, 49]
     all_time = 49
     models, train_vectors, train_scores, train_f1, train_earliness, test_vectors,  test_scores, test_f1,test_earliness = [], [], [], [], [], [], [], [], []
     
@@ -761,10 +759,10 @@ if __name__ == "__main__":
     for earliness in test_earliness:
         file1.write(str(earliness) + ", ")
     file1.write("] \n")
-
     time_slices = [11,21,31,36,41,49]
-    #learning_with_sliced_data(time_slices,train_1,test,states=2, exact=False, target_class=1, timeLimit=1000)
-
+    time_slices = [11,21]
+    learning_with_sliced_data(time_slices,train_1,test,states=2, exact=False, target_class=1, timeLimit=1000)
+    
     # --------- 4. Runs: incremental learning && incremental mode ----------------
     
     time_slices=[31, 36, 41, 49]
@@ -776,11 +774,10 @@ if __name__ == "__main__":
     whole_len=len(data)
     all_time=49
     #chunks_sizes, test_thresholds = [50, 50, 80, 80, 80, 100, 100, 100, 120, 120, 150, 150 ], [1,2, 2, 3, 4, 2 , 3, 4 , 3, 4, 4,5 ] 
-    #chunks_sizes = [50]
     chunk_size = 80
-    test_thresholds = [3,3, 3, 3] 
+    test_thresholds = [1,1, 1, 1] 
     time_list, train_vectors, train_scores, train_f1, train_earliness, test_vectors,  test_scores, test_f1,test_earliness = [], [], [], [], [], [], [], [], []
-    target_class, exact,incremental_mode, states, timeLimit = 1, False, True, 2 ,1000 
+    target_class, exact,incremental_mode, states, timeLimit = 1, False, True, 2 ,1000
     file1 = open("incremental_learning(chunk size, test threshold)= (" + str(chunk_size) + ", "+ str(test_thresholds[0]) + ").txt","w")
     
     for (test_threshold, t_slice) in zip(test_thresholds,time_slices):
@@ -875,7 +872,7 @@ if __name__ == "__main__":
     for cnt_time in time_list:
         file1.write(str(cnt_time) + ", ")
     file1.write("] \n")
-    
+
 # --------- 5. Runs: allStates && incremental learning && incremental mode ----------------
 csvReader = csv.reader(open(train_1, newline='\n'))
 data=[]
@@ -883,18 +880,14 @@ for row in csvReader:
     row = ",".join(row)
     data.append(row)
 whole_len=len(data)
-print("whole_len ", whole_len)
-#target_class, exact, incremental_mode, incremental_search, chunk_size, test_threshold, analytics =  1, False, True,  True, 50, 3, False
-target_class, exact, incremental_mode, incremental_search, chunk_size, test_threshold, analytics =  1, False, True,  False, 0, 0, False
-#all_states, timeLimits, time_slices = [2, 3, 4, 5], [60*5,60*5,60*5, 60*5], [11,21, 31, 36,41,49]
+target_class, exact, incremental_mode, incremental_search, chunk_size, test_threshold, analytics =  1, False, True,  True, 50, 2, False
+target_class, exact, incremental_mode, incremental_search, chunk_size, test_threshold, analytics =  1, False, True,  False, 50, 100, False
 
 
 all_states, timeLimits, time_slices = [5], [[2*60],[3*60],[4*60],[5*60],[6*60],[8*60]], [11,21, 31, 36,41,49]
-file1 = open("all_learning_and_t_slices_necrotic.txt","w")
+all_states, timeLimits, time_slices = [10], [[20]], [11,21]
 
-#all_states, timeLimits, time_slices = [2, 3, 4, 5], [60*5,60*5,60*5, 60*5], [31]
-#all_states, timeLimits, time_slices = [2, 3, 4, 5], [20,35,45, 50], [31]
-#all_states, timeLimits, time_slices = [2], [20], [10]
+file1 = open("all_learning_and_t_slices.txt","w") 
 all_time=49
 cnt=0
 for t_slice in time_slices:
@@ -905,15 +898,16 @@ for t_slice in time_slices:
     file1.write(" \n----- time slices = " + str(t_slice) + " -----\n")
     file1.write("\n ----- Best incremental learning model, using " + str(per_batch) + " % of the dataset -----\n")
     print(t_slice)
-    batching, best_states = call_app_all_parameters(train_1, test, all_states, timeLimits[cnt], target_class, exact, incremental_mode, t_slice,  incremental_search, chunk_size , test_threshold, analytics)
-    
-    
-    file1.write(batching['best_model']+ "\n")
-    file1.write("\nTest vectors: "+ str(batching['test_vector'])+ ", "+ str(batching['test_score']) +", " + str(round((1-(batching['test_score']/387))*100,2)) + ";  Train vectors: " + str(batching['train_vector']) + ", "+ str(batching['train_score']) + ", " +str(round((1-(batching['train_score']/1545))*100,2)) +  "\nTime elapsed: " + str(round(batching['time'],2)) +"\n" )
-    cnt=cnt+1    
 
+    call_app_all_parameters(train_1, test, all_states, timeLimits[cnt], target_class, exact, incremental_mode, t_slice,  incremental_search, chunk_size , test_threshold, analytics)
+    
+    #file1.write(batching['best_model']+ "\n")
+    #file1.write("\nTest vectors: "+ str(batching['test_vector'])+ ", "+ str(batching['test_score']) +", " + str(round((1-(batching['test_score']/387))*100,2)) + ";  Train vectors: " + str(batching['train_vector']) + ", "+ str(batching['train_score']) + ", " +str(round((1-(batching['train_score']/1545))*100,2)) +  "\nTime elapsed: " + str(round(batching['time'],2)) +"\n" )
+    cnt=cnt+1
+
+   
 # --------- 6. Runs: Blind Stopping time  ---------------- 
-file1 = open("blind_stopping_time_apoptotic2.txt","w")
+file1 = open("blind_stopping_time.txt","w")
 target_class, exact, incremental_mode, incremental_search, chunk_size, test_threshold, analytics,t_slice =  1, False, False,  False, 0, 0, False, 0
 states, timeLimit=5,480
 print("start searching")
@@ -942,6 +936,6 @@ for t_slice in time_slices:
     print(app.test_vector)
     file1.write(" Score on test set:  " + str(app.best_test_score) + ", "+ str(round((1-(app.best_test_score/129)),4))+ "; Test earliness:" +str(app.test_earliness) + " \n")
     file1.write(" f1 - accuracy on test set:  " + str(app.f1_accuracy)+"\n")
-
 """
+
 
